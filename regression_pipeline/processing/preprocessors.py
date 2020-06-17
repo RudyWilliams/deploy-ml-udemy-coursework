@@ -97,7 +97,7 @@ class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
             X[feature] = np.where(
                 X[feature].isin(self.encoder_dict_[feature]), X[feature], "Rare"
             )
-        return self
+        return X
 
 
 class CategoricalEncoder(BaseEstimator, TransformerMixin):
@@ -166,7 +166,7 @@ class DropUnnecessaryFeatures(BaseEstimator, TransformerMixin):
     def __init__(self, variables_to_drop=None):
         self.variables = variables_to_drop
 
-    def fit(self, X):
+    def fit(self, X, y=None):
         return self
 
     def transform(self, X):

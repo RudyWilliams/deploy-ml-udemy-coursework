@@ -1,14 +1,14 @@
 import pathlib
 
-import regression_model
+import regression_pipeline
 
-PACKAGE_ROOT = pathlib.Path(regression_model.__file__).resolve().parent
+PACKAGE_ROOT = pathlib.Path(regression_pipeline.__file__).resolve().parent
 TRAINED_MODEL_DIR = PACKAGE_ROOT / "TRAINED_MODELS"
 DATASET_DIR = PACKAGE_ROOT / "data"
 
 TESTING_DATA_FILE = "test.csv"
 TRAINING_DATA_FILE = "train.csv"
-TARGET = "SalesPrice"
+TARGET = "SalePrice"
 
 FEATURES = [
     "MSSubClass",
