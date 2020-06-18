@@ -1,6 +1,8 @@
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 
+from regression_pipeline.processing.errors import InvalidModelInputError
+
 
 class LogTransformer(BaseEstimator, TransformerMixin):
     def __init__(self, variables):
@@ -18,7 +20,9 @@ class LogTransformer(BaseEstimator, TransformerMixin):
         # values must be positive for the logtransform
         if not (X[self.variables] > 0).all().all():
             vars_ = self.variables[(X[self.variables] <= 0).any()]
-            raise ValueError(f"Variables contain nonpositive values: {vars_}")
+            raise InvalidModelInputError(
+                f"Variables contain nonpositive values: {vars_}"
+            )
 
         for feature in self.variables:
             X[feature] = np.log(X[feature])

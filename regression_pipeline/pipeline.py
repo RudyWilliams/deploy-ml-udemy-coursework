@@ -1,3 +1,4 @@
+import logging
 from sklearn.linear_model import Lasso
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler
@@ -6,6 +7,7 @@ from regression_pipeline.processing import preprocessors as pp
 from regression_pipeline.processing import features
 from regression_pipeline.config import config
 
+_logger = logging.getLogger(__name__)
 
 price_pipe = Pipeline(
     # pass a list of tuples with the first element being the name to call the step
