@@ -1,0 +1,16 @@
+include *.txt
+include *.md
+include *.pkl
+include *.cfg
+recursive-include ./regression_pipeline/*
+
+include regression_pipeline/datasets/train.csv
+include regression_pipeline/datasets/test.csv 
+include regression_pipeline/trained_models/*.pkl 
+include regression_pipeline/VERSION
+
+include ./requirements.txt
+exclude *.log
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
